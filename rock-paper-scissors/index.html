@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        let choices = ["rock", "paper", "scissors"]
+        function getComputerChoice(){
+            return choices[(Math.floor(Math.random()* choices.length))]
+        }
+        function getHumanChoice() { 
+            return prompt("rock, paper or scissors") }
+        let humanScore = 0;
+        let computerScore = 0;
+        function playRound(humanChoice, computerChoice){
+            
+            humanChoice = humanChoice.toLowerCase();
+            computerChoice = computerChoice.toLowerCase();
+            if (humanChoice === "rock" && computerChoice === "paper"){
+                console.log("Lose");
+                computerScore++;
+            } else if (humanChoice === "rock" && computerChoice === "scissors"){
+                console.log("Win");
+                humanScore++;
+            } else if (humanChoice === "rock" && computerChoice === "rock"){
+                console.log("Draw")
+
+            }
+            if (humanChoice === "paper" && computerChoice === "paper"){
+                console.log("Draw")
+            } else if (humanChoice === "paper" && computerChoice === "scissors"){
+                console.log("Lose")
+                computerScore++;
+            } else if (humanChoice === "paper" && computerChoice === "rock"){
+                console.log("Win")
+                humanScore++;
+            }
+            if (humanChoice === "scissors" && computerChoice === "paper"){
+                console.log("Win")
+                humanScore++;
+            } else if (humanChoice === "scissors" && computerChoice === "scissors"){
+                console.log("Draw")
+            } else if (humanChoice === "scissors" && computerChoice === "rock"){
+                console.log("Lose")
+                computerScore++;
+            }
+            
+        }
+        
+        
+        for (let i = 0; i < 5; i++){ 
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            console.log("computer choice: " + computerSelection)
+            console.log("your choice: "+ humanSelection)
+            playRound(humanSelection, computerSelection);
+            console.log("computer score: "+computerScore);
+            console.log("your score: "+ humanScore);}
+        
+        
+    </script>
+    
+</body>
+</html>
